@@ -1,0 +1,1 @@
+ //Given an array a contains all digits 0-9 a   = [1, 4, 2, 1] # which represents 1421 Add one to the number and return the array return a = [1, 4, 2, 2] # which represents 1422 . Identify all corner cases. 
