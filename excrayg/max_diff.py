@@ -6,10 +6,45 @@
 # 1, 2, 4, 5, 7, 9, 11, 16
 # 2, 0, 1, 5, 4, 7, 6, 3.
 
-#Sort the array. keeping in track of the original indexes. find first i > j, i starts from beginning of array. j is end of array. 
+#20,30,99,100
+#1,2,0,3
+#0,1,2,3
+
+#1,2,3,4
+#0,1,2,3
+
+#0,3 - else condition, 1,3 or 0,2 
+
+#Sort the array. keeping in track of the original indexes. find first idx[i] > idx[j], i starts from beginning of array. j is end of array. 
 
 def max_diff(numbers):
 	number_idx_tuples_list = []
 	for idx, elem in enumerate(numbers):
-		number_idx_
+		number_idx_tuples_list.append((elem,idx))
+	sorted(number_idx_tuples_list, key=lambda x: x[0])
+	n = len(number_idx_tuples_list)
+	i = 0
+	j = n-1
+	
+	while i > j:
+		li = number_idx_tuples_list[i][1]
+		ri = number_idx_tuples_list[j][1]
+		if li > ri:
+			break
+		else:
+			if i-j>1:
+				ln = numbers[li]
+				rn = numbers[ri]
+				ln_1 = number_idx_tuples_list[i+1][1]
+				rn_1 = number_idx_tuples_list[j-1][1]
+				
+				if ln - rn_1 > ln_1 - rn:
+					i+=1
+				else:
+					j-=1
+				
+			else:
+				break
+				
+	return number_idx_tuples_list[j][0] - number_idx_tuples_list[i][0]
 
