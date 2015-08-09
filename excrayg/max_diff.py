@@ -17,34 +17,49 @@
 
 #Sort the array. keeping in track of the original indexes. find first idx[i] > idx[j], i starts from beginning of array. j is end of array. 
 
-def max_diff(numbers):
-	number_idx_tuples_list = []
-	for idx, elem in enumerate(numbers):
-		number_idx_tuples_list.append((elem,idx))
-	sorted(number_idx_tuples_list, key=lambda x: x[0])
-	n = len(number_idx_tuples_list)
-	i = 0
-	j = n-1
+# def max_diff(numbers):
+# 	number_idx_tuples_list = []
+# 	for idx, elem in enumerate(numbers):
+# 		number_idx_tuples_list.append((elem,idx))
+# 	sorted(number_idx_tuples_list, key=lambda x: x[0])
+# 	n = len(number_idx_tuples_list)
+# 	i = 0
+# 	j = n-1
 	
-	while i > j:
-		li = number_idx_tuples_list[i][1]
-		ri = number_idx_tuples_list[j][1]
-		if li > ri:
-			break
-		else:
-			if i-j>1:
-				ln = numbers[li]
-				rn = numbers[ri]
-				ln_1 = number_idx_tuples_list[i+1][1]
-				rn_1 = number_idx_tuples_list[j-1][1]
+# 	while i > j:
+# 		li = number_idx_tuples_list[i][1]
+# 		ri = number_idx_tuples_list[j][1]
+# 		if li > ri:
+# 			break
+# 		else:
+# 			if i-j>1:
+# 				ln = numbers[li]
+# 				rn = numbers[ri]
+# 				ln_1 = number_idx_tuples_list[i+1][1]
+# 				rn_1 = number_idx_tuples_list[j-1][1]
 				
-				if ln - rn_1 > ln_1 - rn:
-					i+=1
-				else:
-					j-=1
+# 				if ln - rn_1 > ln_1 - rn:
+# 					i+=1
+# 				else:
+# 					j-=1
 				
-			else:
-				break
+# 			else:
+# 				break
 				
-	return number_idx_tuples_list[j][0] - number_idx_tuples_list[i][0]
+# 	return number_idx_tuples_list[j][0] - number_idx_tuples_list[i][0]
 
+#correct solution
+
+l = [2, 4, 1, 16, 7, 5, 11, 9]
+
+min_elem = float("inf")
+max_diff = float("-inf")
+
+i = len(l)-1
+while i >= 0:
+	min_elem = min(l[i], min_elem)
+	max_diff = max(l[i]-min_elem, max_diff)
+	i-=1
+print(max_diff)
+
+# good work!

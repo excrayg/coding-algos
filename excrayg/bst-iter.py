@@ -85,26 +85,48 @@ class BST:
 			print("Error - End of tree reached")
 			sys.exit(1)
 		
-		#Peek the node to visit
-		node = self.stack[len(self.stack)-1]
-		
 		#Go to its left most child. While pushing the path to it, in the stack.
-		while node.left != None:
-			node = node.left
+		while node != None:
 			self.stack.append(node)
+			node = node.left
 		
 		#Pop the left most child. This is the node to vist. 
 		ret_node = self.stack.pop()
-		
+		node = ret_node
 		#if visited node has right child, start the process again from right child node. 
-		if ret_node.right:
-			stack.append(ret_node.right)
+		if node.right:
+			node = node.right
 			
 		return ret_node
 		
 		
-		
-			
+https://kobra.io/#/e/-JvcI7k5w5QrTUmGITAK
+
+"""
+I tested your code and found that there're some little mistakes in it:
+>>> rt = nod()
+>>> lf = nod()
+>>> rt.val = 1
+>>> lf.val = 2
+>>> ri = nod()
+>>> ri.val = 3
+>>> rt.left = lf
+>>> ri.right = ri
+>>> t = BST(rt)
+>>> a = t.next()
+>>> a.val
+2
+>>> a = t.next()
+>>> a.val
+2
+>>> a = t.next()
+>>> a.val
+2
+
+And I think the problem is that the parent of the min node is always in the stack and will not be removed
+maybe you can try fetch the top of the stack and remove it every time next() is called, and do some extra work to keep the top of stack always the min value.
+"""
+
 
 
 	
