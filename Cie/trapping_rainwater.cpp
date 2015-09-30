@@ -2,9 +2,11 @@
 
 //time: from 10:10 to 
 
-//[0,1,0,2,1,0,1,3,2,1,2,1]
-
-
+//[0,1,0,3,1,2,1,3,2,1,2,1]
+//3,3,3,3,3
+//how will stack look like for your method?
+//  3 => 3 , 3
+ 
 int trap(vector<int> &nums) {
   int n = nums.size(); if (n == 0) return 0;
   

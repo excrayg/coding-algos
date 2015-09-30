@@ -1,0 +1,2 @@
+#Write a function that takes an array of integers A and returns the length of a longest subarray of A with the constraint that all its elements are distinct. 
+# For eg. A = [5,7,5,11,13,2,11,19,2,11], longest subarray with distinct elements is A[1:5]

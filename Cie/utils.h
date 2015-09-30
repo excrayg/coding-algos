@@ -2,11 +2,15 @@
 #define CIE_UTILS_H_
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <queue>
 #include "string"
 using std::string;
 using std::cout;
 using std::endl;
 using std::vector;
+using std::stack;
+using std::queue;
 class TreeNode {
     public:
     int val;
