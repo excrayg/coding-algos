@@ -1,0 +1,1 @@
+#Let P be a set of n points in the plane. Each point hasd integer coordinates. Design an effecient algo for comouting a line that contains the max number of points in P.
